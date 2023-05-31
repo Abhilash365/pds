@@ -1,4 +1,3 @@
-# pds
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -87,6 +86,7 @@ void bookTicket(struct TrainTicketSystem* system) {
     newTicket.date[strcspn(newTicket.date, "\n")] = '\0';
 
     printf("Train number is : 10001\n");
+    system->numTickets++;
 
 
     if(strcmp(newTicket.boarding,"Bhubaneswar")==0 && strcmp(newTicket.destination,"Cuttack")==0|| strcmp(newTicket.boarding,"Cuttack")==0 && strcmp(newTicket.destination,"Bhubaneswar")==0)
@@ -95,6 +95,7 @@ void bookTicket(struct TrainTicketSystem* system) {
         printf("Ticket booked successfully!\n");
         printf("Your seat number is %d.\n", newTicket.seatno);
         printf("Your train number is:10001\n");
+
     }
 
     
@@ -191,6 +192,7 @@ void cancelTicket(struct TrainTicketSystem* system) {
 	{
     printf("Ticket cancellation successful!\n");
 	ticket->isCancelled=1;
+    system->numTickets--;
 	return;
 	}  
     
